@@ -9,10 +9,8 @@ import numpy as np
 from numpy import random as rd
 from scipy.integrate import quad
 from scipy.integrate import dblquad
-import time
 import streamlit as st
 
-start = time.time()
 
 st.title("Opportunistic Maintenance Policy - Analysis and Optimization")
 
@@ -879,3 +877,4 @@ if st.button("Get Recommendation"):
     
     
     
+
