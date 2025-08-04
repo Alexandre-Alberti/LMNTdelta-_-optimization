@@ -846,7 +846,7 @@ if st.button("Get Recommendation"):
         C3 = Cp
 
         # Solutions tested
-        N_max = 1*(Cf/Ci)
+        N_max = 1*(Cp/Ci)
         T_max = 2*(eta_x+eta_h)
         
         recommendation = optimal_1(eta_x, beta_x, eta_h, beta_h, lbda,
@@ -875,6 +875,7 @@ if st.button("Get Recommendation"):
     
     
     
+
 
 
 
