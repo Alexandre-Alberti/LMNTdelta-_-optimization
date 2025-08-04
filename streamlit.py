@@ -825,17 +825,6 @@ def optimal_1(eta_x,beta_x,eta_h,beta_h,lbda,Cp,Cop,Ci,Coi,Cf,C1,C2,C3,Dp,Df,del
     
     return(final_solution)
 
-
-#Cost of early replacement after time lag delta
-# Cep(delta) = C1 + C2*exp(-C3*delta)
-C1 = (Cp - Cep_max)/(delta_lim - delta_min)
-C2 = Cep_max - C1*delta_min
-C3 = Cp
-
-# Solutions tested
-N_max = 1*(Cf/Ci)
-T_max = 2*(eta_x+eta_h)
-
 #paremeters GA
 pop = 50
 gen = 10
@@ -844,20 +833,29 @@ eli = 15
 mig = 5
 mov = 10
 
-recomendation = optimal_1(eta_x,beta_x,eta_h,beta_h,lbda,Cp,Cop,Ci,Coi,Cf,C1,C2,C3,Dp,Df,delta_lim,N_max,T_max,delta_min,pop,gen,mut,eli,mig,mov)
+#recomendation = optimal_1(eta_x,beta_x,eta_h,beta_h,lbda,Cp,Cop,Ci,Coi,Cf,C1,C2,C3,Dp,Df,delta_lim,N_max,T_max,delta_min,pop,gen,mut,eli,mig,mov)
 
 
 # Executar
 if st.button("Get Recommendation"):
     with st.spinner('⏳ Running optimization...'):
-        start = time.time()
+        #Cost of early replacement after time lag delta
+        # Cep(delta) = C1 + C2*exp(-C3*delta)
+        C1 = (Cp - Cep_max)/(delta_lim - delta_min)
+        C2 = Cep_max - C1*delta_min
+        C3 = Cp
+
+        # Solutions tested
+        N_max = 1*(Cf/Ci)
+        T_max = 2*(eta_x+eta_h)
+        
         recommendation = optimal_1(eta_x, beta_x, eta_h, beta_h, lbda,
                                    Cp, Cop, Ci, Coi, Cf,
                                    C1, C2, C3,
                                    Dp, Df, delta_lim,
                                    N_max, T_max, delta_min,
                                    pop, gen, mut, eli, mig, mov)
-        end = time.time()
+        
 
     st.success("✅ Recommendation completed!")
     st.markdown(f"**Optimal Policy Parameters:**")
@@ -877,4 +875,5 @@ if st.button("Get Recommendation"):
     
     
     
+
 
