@@ -826,10 +826,10 @@ def optimal_1(eta_x,beta_x,eta_h,beta_h,lbda,Cp,Cop,Ci,Coi,Cf,C1,C2,C3,Dp,Df,del
     return(final_solution)
 
 #paremeters GA
-pop = 50
+pop = 30
 gen = 10
 mut = 0.1
-eli = 15
+eli = 10
 mig = 5
 mov = 10
 
@@ -875,5 +875,6 @@ if st.button("Get Recommendation"):
     
     
     
+
 
 
